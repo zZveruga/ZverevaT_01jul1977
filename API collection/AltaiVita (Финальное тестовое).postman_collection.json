@@ -1,0 +1,268 @@
+
+{
+	"info": {
+		"_postman_id": "2a80b012-32a7-4170-b510-b4da442c2486",
+		"name": "AltaiVita (Финальное тестовое)",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "39986650",
+		"_collection_link": "https://planetary-desert-542673.postman.co/workspace/8fe69020-36e8-4dd5-80d7-5aeb4c7b7bcc/collection/39986650-2a80b012-32a7-4170-b510-b4da442c2486?action=share&source=collection_link&creator=39986650"
+	},
+	"item": [
+		{
+			"name": "Добавление в корзину",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "urlencoded",
+					"urlencoded": [
+						{
+							"key": "product_id",
+							"value": "{{product_id}}",
+							"description": "{{product_id}}",
+							"type": "text"
+						},
+						{
+							"key": "LANG_key",
+							"value": "ru",
+							"description": "ru",
+							"type": "text"
+						},
+						{
+							"key": "S_wh",
+							"value": "1",
+							"description": "1",
+							"type": "text"
+						},
+						{
+							"key": "S_CID",
+							"value": "0b82ac80b4031f914b8a3ebecbbeb754",
+							"description": "0b82ac80b4031f914b8a3ebecbbeb754",
+							"type": "text"
+						},
+						{
+							"key": "S_cur_code",
+							"value": "rub",
+							"description": "rub",
+							"type": "text"
+						},
+						{
+							"key": "S_koef",
+							"value": "1",
+							"description": "1",
+							"type": "text"
+						},
+						{
+							"key": "quantity",
+							"value": "1",
+							"description": "1",
+							"type": "text"
+						},
+						{
+							"key": "S_hint_code",
+							"value": "",
+							"type": "text"
+						},
+						{
+							"key": "S_customerID",
+							"value": "",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "{{baseURL}}add_products_to_cart_from_preview.php",
+					"host": [
+						"{{baseURL}}add_products_to_cart_from_preview",
+						"php"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Изменение количества товара (увеличение)",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "urlencoded",
+					"urlencoded": [
+						{
+							"key": "itemID",
+							"value": "914853",
+							"type": "text"
+						},
+						{
+							"key": "quantity",
+							"value": "4",
+							"type": "text"
+						},
+						{
+							"key": "action",
+							"value": "update_quantity",
+							"type": "text"
+						},
+						{
+							"key": "LANG_key",
+							"value": "ru",
+							"type": "text"
+						},
+						{
+							"key": "S_wh",
+							"value": "1",
+							"type": "text"
+						},
+						{
+							"key": "S_CID",
+							"value": "0b82ac80b4031f914b8a3ebecbbeb754",
+							"type": "text"
+						},
+						{
+							"key": "S_cur_code",
+							"value": "rub",
+							"type": "text"
+						},
+						{
+							"key": "S_koef",
+							"value": "1",
+							"type": "text"
+						},
+						{
+							"key": "S_hint_code",
+							"value": "",
+							"type": "text"
+						},
+						{
+							"key": "S_customerID",
+							"value": "",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "{{baseURL}}action_with_basket_on_cart_page.php",
+					"host": [
+						"{{baseURL}}action_with_basket_on_cart_page",
+						"php"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Удаление товара.",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "urlencoded",
+					"urlencoded": [
+						{
+							"key": "product_id",
+							"value": "{{product_id}}",
+							"type": "text"
+						},
+						{
+							"key": "LANG_key",
+							"value": "ru",
+							"type": "text"
+						},
+						{
+							"key": "S_wh",
+							"value": "1",
+							"type": "text"
+						},
+						{
+							"key": "S_CID",
+							"value": "0b82ac80b4031f914b8a3ebecbbeb754",
+							"type": "text"
+						},
+						{
+							"key": "S_cur_code",
+							"value": "rub",
+							"type": "text"
+						},
+						{
+							"key": "S_koef",
+							"value": "1",
+							"type": "text"
+						},
+						{
+							"key": "S_hint_code",
+							"value": "",
+							"type": "text"
+						},
+						{
+							"key": "S_customerID",
+							"value": "",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "{{baseURL}}delete_products_from_cart_preview.php",
+					"host": [
+						"{{baseURL}}delete_products_from_cart_preview",
+						"php"
+					]
+				}
+			},
+			"response": []
+		}
+	],
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"packages": {},
+				"exec": [
+					"const moment = require('moment');\r",
+					"pm.variables.set(\"today\", moment().format(\"DD-MM-YYYY\"));\r",
+					"console.log(pm.variables.get(\"today\"));"
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"packages": {},
+				"exec": [
+					"pm.test(\"Status code is 200\", function () {\r",
+					"    pm.response.to.have.status(200, 201, 202);\r",
+					"});\r",
+					"\r",
+					"\r",
+					"\r",
+					"pm.test(\"Response time is less than 500ms\", function () {\r",
+					"    pm.expect(pm.response.responseTime).to.be.below(500);\r",
+					"});"
+				]
+			}
+		}
+	],
+	"variable": [
+		{
+			"key": "content-type",
+			"value": "application/x-www-form-urlencoded; charset=UTF-8",
+			"type": "string"
+		},
+		{
+			"key": "user-agent",
+			"value": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/138.0.0.0 Safari/537.36",
+			"type": "string"
+		},
+		{
+			"key": "accept-language",
+			"value": "ru-RU,ru;q=0.9,en-US;q=0.8,en;q=0.7",
+			"type": "string"
+		},
+		{
+			"key": "baseURL",
+			"value": "https://altaivita.ru/engine/cart/",
+			"type": "default"
+		}
+	]
+}
